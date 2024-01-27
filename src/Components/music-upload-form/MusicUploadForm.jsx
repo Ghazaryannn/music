@@ -6,14 +6,25 @@ import styles from './MusicUploadForm.module.css'
 
 
 const MusicUploadForm = () => {
-
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
   const [loadings, setLoadings] = useState([])
 
-  const toggleButton = () => {
+  const [fileName, setFileName] = useState('')
+
+  const handleFileName = (e) => {
+    setFileName(e.target.innerText);
+  }
+
+  // Function to toggle button disablement
+
+  const toggleButton = (e) => {
     setIsButtonDisabled(!isButtonDisabled);
+    handleFileName(e)
   };
+
+
+  // Function to set loading state and simulate loading process
 
   const enterLoading = (index) => {
     setLoadings((prevLoadings) => {
@@ -26,19 +37,27 @@ const MusicUploadForm = () => {
       setLoadings((prevLoadings) => {
         const newLoadings = [...prevLoadings];
         newLoadings[index] = false;
+        console.log(`Download ${fileName}`);
         return newLoadings;
       });
-    }, 6000);
+    }, 6000); // Simulating 6 seconds loading time
   }
 
   return (
     <div className={styles.upload}>
-      <Button type="primary" loading={loadings[0]} onClick={() => enterLoading(0)} className={styles.btn} disabled={isButtonDisabled}>
+      <Button
+      type="primary" 
+      loading={loadings[0]} 
+      onClick={() => enterLoading(0)} 
+      className={styles.btn} 
+      disabled={isButtonDisabled}>
         Download
       </Button>
+       {/* Dropdown for selecting file format */}
       <div className={styles.dropdown}>
         <button className={styles.down}><FaCaretDown /></button>
         <div className={styles.down_content}>
+           {/* Options for file format */}
           <p onClick={toggleButton}>.mp3</p>
           <p onClick={toggleButton}>.wav</p>
         </div>

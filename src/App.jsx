@@ -1,4 +1,4 @@
-import SongList from './Components/SongList/SongList';
+import SongList from './Components/song-list/SongList';
 import styles from './app.module.css'
 
 const App = () => {

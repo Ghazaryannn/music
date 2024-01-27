@@ -37,3 +37,21 @@
 .upload .dropdown:hover .down_content{
     display: block;
 }
+
+@media screen and (max-width:780px){
+    .down{
+        left: 80px;
+        height: 30px;
+    }
+    .down_content{
+        left: 90px;
+    }
+    .btn{
+        width: 90px;
+        height: 30px;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

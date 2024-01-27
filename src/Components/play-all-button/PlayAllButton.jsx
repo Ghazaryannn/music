@@ -4,28 +4,28 @@ import { FaPlay } from "react-icons/fa";
 import { Dropdown } from 'antd';
 import styles from './PlayAllButton.module.css'
 
+
+//Items menu
 const items = [
   {
-    key: '1',
-    label: '1st item',
-  },
-  {
-    key: '2',
-    label: '2nd item',
-  },
-  {
-    key: '3',
-    label: '3rd item',
-  },
+    label: 'Play selected',
+  }
 ];
 
+
 const PlayAllButton = () => {
+  // Function declaration for handling menu item click event
+  const onMenuClick = () => {
+    console.log('Play selected');
+  };
+
   return (
     <div className={styles.allPlay}>
       <Dropdown.Button
+        onClick={() => console.log('Play all')}
         menu={{
           items,
-          //onClick: onMenuClick,
+          onClick: onMenuClick,
         }}
       >
         <FaPlay className={styles.play} />

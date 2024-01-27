@@ -7,25 +7,17 @@ import styles from './SearchSongs.module.css'
 const items = [
   {
     key: '1',
-    label: '1st item',
-  },
-  {
-    key: '2',
-    label: '2nd item',
-  },
-  {
-    key: '3',
-    label: '3rd item',
-  },
+    label: '...',
+  }
 ];
 
 const SearchSongs = ({setSearchTrack}) => {
   return (
     <div className={styles.searchSongs}>
       <Dropdown.Button
+      onClick={() => console.log('Track Number')}
         menu={{
           items,
-          //onClick: onMenuClick,
         }}
       >
         <LuArrowUpDown />

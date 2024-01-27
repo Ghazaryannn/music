@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import { track } from "../assets/db";
 
+// Initialize a new Audio instance for audio playback
 
 const audio = new Audio()
 
@@ -10,6 +11,7 @@ const AudioProvider = ({children}) => {
     const [currentTrack, setCurrenTrack] = useState(track[0])
     const [isPlaying, setIsPlaying] = useState(false)
 
+    //Function to handle audio playback and track switching.
     const handleAudio = (track) => {
         if(currentTrack.id !== track.id){
             setCurrenTrack(track)
@@ -19,6 +21,7 @@ const AudioProvider = ({children}) => {
             audio.play()
             return
         }
+        // Toggle playback state if the same track is clicked
         if(isPlaying){
             audio.pause()
             setIsPlaying(false)

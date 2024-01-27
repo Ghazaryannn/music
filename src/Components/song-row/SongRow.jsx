@@ -1,17 +1,19 @@
-import React from 'react'
-import { FaPlay, FaHeart, FaCheck, FaShare, FaCaretDown, FaPause } from "react-icons/fa";
+import React, { useState } from 'react'
+import { FaPlay, FaPause, FaCaretSquareRight } from "react-icons/fa";
 import styles from './SongRow.module.css'
 import second from '../../utils/seconds';
 import { useContext } from 'react';
 import { AudiaoContext } from '../../context/AudioContext';
 import cn from 'classnames'
-import MusicUploadForm from '../MusicUploadForm/MusicUploadForm';
+import MusicUploadForm from '../music-upload-form/MusicUploadForm';
+import Actions from '../actions/Actions';
 
 const SongRow = (track) => {
   const { id, preview, title, artists, duration } = track
-  const { handleAudio, currentTrack, isPlaying } = useContext(AudiaoContext)
-  const icCurrentTrack = currentTrack.id === track.id
-  const secoundMMSS = second(duration)
+  const { handleAudio, currentTrack, isPlaying } = useContext(AudiaoContext)      // Context for managing audio playback
+  const icCurrentTrack = currentTrack.id === track.id      //Checking if the current track matches this track
+  const secoundMMSS = second(duration)     //Formatting duration into MM:SS format
+  const [open, setOpen] = useState(false)
   return (
     <div className={cn(styles.track, icCurrentTrack && styles.playing)}>
 
@@ -36,19 +38,23 @@ const SongRow = (track) => {
 
       <div className={styles.time}>
         <p>{secoundMMSS}</p>
+        <FaCaretSquareRight onClick={() => setOpen(!open)} className={styles.mobile_menu}/>
       </div>
+      {
+        open ? 
+        <div className={cn(styles.mobile_select, open && styles.active)}>
+        <MusicUploadForm />
+        <Actions/>
+        </div>
+        : ''
+      }
 
       <div className={styles.download}>
         <MusicUploadForm />
       </div>
 
       <div className={styles.action}>
-        <ul>
-          <li><FaHeart /></li>
-          <li><FaCheck /></li>
-          <li><FaShare /></li>
-          <li><FaCaretDown /></li>
-        </ul>
+        <Actions/>
       </div>
 
     </div>

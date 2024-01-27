@@ -78,5 +78,9 @@
     .title .time{
         width: 130px;
     }
-    
+}
+@media screen and (max-width: 900px) {
+    .title .action{
+        width: 150px;
+    }
 }

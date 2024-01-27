@@ -1,5 +1,5 @@
 import React from 'react'
-import MusicPlayerAnimation from '../MusicPlayerAnimation/MusicPlayerAnimation'
+import MusicPlayerAnimation from '../music-player-animation/MusicPlayerAnimation'
 import { useContext } from 'react'
 import { AudiaoContext } from '../../context/AudioContext'
 import styles from './SongsTitle.module.css'
