@@ -68,3 +68,41 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Project Structure
+
+```plaintext
+
+src/
+|-- Components/
+        Main page
+|   |-- song-list/
+|   |   |-- SongList.jsx
+|   |   |-- SongList.module.css
+
+|   |-- Header/
+|   |   |-- Header.jsx
+|   |   |-- Header.module.css
+|   |-- |-- play-all-button/
+|   |   |-- PLayAllButton.jsx
+|   |   |-- PLayAllButton.module.css
+|   |-- |-- add-all-btn/
+|   |   |-- AddAllBtn.jsx
+|   |   |-- AddAllBtn.module.css
+|   |-- |-- search-songs/
+|   |   |-- SearchSongs.jsx
+|   |   |-- SearchSongs.module.css
+
+|   |-- songs-title/
+|   |   |-- SongsTitle.jsx
+|   |   |-- SongsTitle.module.css
+|   |-- |-- music-player-animation/
+|   |   |-- MusicPlayerAnimation.jsx
+|   |   |-- MusicPlayerAnimation.module.css
+
+|   |-- song-row/
+|   |   |-- SongRow.jsx
+|   |   |-- SongRow.module.css
+|   |-- |-- music-upload-form/
+|   |   |-- MusicUploadForm.jsx
+|   |   |-- MusicUploadForm.module.css
